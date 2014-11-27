@@ -1,0 +1,24 @@
+{
+  "name": "jstransformer-less",
+  "version": "0.0.0",
+  "description": "Transform less to css",
+  "keywords": [
+    "jstransformer"
+  ],
+  "dependencies": {
+    "less": "^2.1.1",
+    "less-plugin-inline-urls": "0.0.3",
+    "less-plugin-npm-import": "^1.0.2",
+    "promise": "^6.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jstransformers/jstransformer-less.git"
+  },
+  "author": "ForbesLindesay",
+  "license": "MIT"
+}
