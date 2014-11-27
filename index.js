@@ -4,8 +4,6 @@ var path = require('path');
 var fs = require('fs');
 var less = require('less');
 var Promise = require('promise');
-var npmPlugin = require('less-plugin-npm-import');
-var urlPlugin = require('less-plugin-inline-urls');
 var readFile = Promise.denodeify(fs.readFile);
 
 exports.name = 'less';
@@ -14,8 +12,15 @@ exports.outputFormat = 'css';
 exports.render = function (str, options) {
   options = options || {};
   options.plugins = options.plugins || [];
-  options.plugins.push(npmPlugin);
-  options.plugins.push(urlPlugin);
+  if (Array.isArray(options.plugins)) {
+    options.plugins = options.plugins.map(function (name) {
+      if (typeof name === 'string') {
+        return require('less-plugin-' + name);
+      } else {
+        return name;
+      }
+    });
+  }
 
   options.syncImport = true;
 
@@ -32,8 +37,15 @@ exports.render = function (str, options) {
 exports.renderAsync = function (str, options) {
   options = options || {};
   options.plugins = options.plugins || [];
-  options.plugins.push(npmPlugin);
-  options.plugins.push(urlPlugin);
+  if (Array.isArray(options.plugins)) {
+    options.plugins = options.plugins.map(function (name) {
+      if (typeof name === 'string') {
+        return require('less-plugin-' + name);
+      } else {
+        return name;
+      }
+    });
+  }
 
   return less.render(str, options).then(function (res) {
     return {body: res.css, dependencies: res.imports};
