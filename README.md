@@ -20,6 +20,11 @@ less.renderFile('example.less').body
 //=> Compiled CSS file
 ```
 
+### Options
+
+In addition to those that are passed through to less:
+- if plugins is an array, it can contain string names like `'npm-import'` or `'inline-urls'` and this module will automatically `require('less-plugin-' + name)` for you.
+
 ## License
 
 MIT
