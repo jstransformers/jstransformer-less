@@ -15,7 +15,7 @@
     "promise": "^7.0.1"
   },
   "devDependencies": {
-    "test-jstransformer": "git://github.com/jstransformers/test-jstransformer#cwd-relative-dependencies"
+    "test-jstransformer": "^1.0.1"
   },
   "scripts": {
     "test": "test-jstransformer",
