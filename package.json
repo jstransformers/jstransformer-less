@@ -1,19 +1,25 @@
 {
   "name": "jstransformer-less",
-  "version": "2.0.0",
-  "description": "Transform less to css",
+  "version": "2.1.0",
+  "description": "Less support for JSTransformers.",
   "keywords": [
     "jstransformer"
+  ],
+  "files": [
+    "index.js"
   ],
   "dependencies": {
     "less": "^2.3.1",
     "less-plugin-inline-urls": "^1.1.0",
-    "less-plugin-npm-import": "^2.0.0",
-    "promise": "^6.1.0"
+    "less-plugin-npm-import": "^2.1.0",
+    "promise": "^7.0.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "test-jstransformer": "^1.0.1"
+  },
   "scripts": {
-    "test": "node test"
+    "test": "test-jstransformer",
+    "coverage": "test-jstransformer coverage"
   },
   "repository": {
     "type": "git",
