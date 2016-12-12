@@ -5,7 +5,7 @@
     "less-plugin-npm-import": "^2.0.0"
   },
   "name": "jstransformer-less",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "LESS support for JSTransformers.",
   "keywords": [
     "jstransformer"
