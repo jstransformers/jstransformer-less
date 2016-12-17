@@ -13,6 +13,7 @@ exports.render = function (str, options) {
   if (Array.isArray(options.plugins)) {
     options.plugins = options.plugins.map(function (name) {
       if (typeof name === 'string') {
+        // eslint-disable-next-line import/no-dynamic-require
         return require('less-plugin-' + name)
       }
       return name
@@ -40,6 +41,7 @@ exports.renderAsync = function (str, options) {
   if (Array.isArray(options.plugins)) {
     options.plugins = options.plugins.map(function (name) {
       if (typeof name === 'string') {
+        // eslint-disable-next-line import/no-dynamic-require
         return require('less-plugin-' + name)
       }
       return name
