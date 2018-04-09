@@ -1,7 +1,5 @@
 # jstransformer-less
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/jstransformers/jstransformer-less.svg)](https://greenkeeper.io/)
-
 [LESS](http://lesscss.org) support for [JSTransformers](http://github.com/jstransformers).
 
 [![Build Status](https://img.shields.io/travis/jstransformers/jstransformer-less/master.svg)](https://travis-ci.org/jstransformers/jstransformer-less)
