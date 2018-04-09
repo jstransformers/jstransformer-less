@@ -1,11 +1,11 @@
 {
   "dependencies": {
-    "less": "^2.3.1",
+    "less": "^3.0.1",
     "less-plugin-inline-urls": "^1.1.0",
     "less-plugin-npm-import": "^2.0.0"
   },
   "name": "jstransformer-less",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "LESS support for JSTransformers.",
   "keywords": [
     "jstransformer"
@@ -14,13 +14,13 @@
     "index.js"
   ],
   "devDependencies": {
-    "test-jstransformer": "^1.0.0",
-    "xo": "^0.18.1"
+    "test-jstransformer": "^1.0.0
+    "xo": "*"
   },
   "scripts": {
     "coverage": "test-jstransformer coverage",
     "test": "test-jstransformer",
-    "posttest": "xo --space --no-semicolon index.js"
+    "posttest": "xo --space=2 --no-semicolon index.js"
   },
   "engines": {
     "node": ">=4"

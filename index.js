@@ -1,8 +1,8 @@
 'use strict'
 
-var path = require('path')
-var fs = require('fs')
-var less = require('less')
+const path = require('path')
+const fs = require('fs')
+const less = require('less')
 
 exports.name = 'less'
 exports.outputFormat = 'css'
@@ -11,7 +11,7 @@ exports.render = function (str, options) {
   options = options || {}
   options.plugins = options.plugins || []
   if (Array.isArray(options.plugins)) {
-    options.plugins = options.plugins.map(function (name) {
+    options.plugins = options.plugins.map(name => {
       if (typeof name === 'string') {
         // eslint-disable-next-line import/no-dynamic-require
         return require('less-plugin-' + name)
@@ -22,8 +22,8 @@ exports.render = function (str, options) {
 
   options.syncImport = true
 
-  var result
-  less.render(str, options, function (err, res) {
+  let result
+  less.render(str, options, (err, res) => {
     if (err) {
       throw err
     }
@@ -39,7 +39,7 @@ exports.renderAsync = function (str, options) {
   options = options || {}
   options.plugins = options.plugins || []
   if (Array.isArray(options.plugins)) {
-    options.plugins = options.plugins.map(function (name) {
+    options.plugins = options.plugins.map(name => {
       if (typeof name === 'string') {
         // eslint-disable-next-line import/no-dynamic-require
         return require('less-plugin-' + name)
@@ -48,7 +48,7 @@ exports.renderAsync = function (str, options) {
     })
   }
 
-  return less.render(str, options).then(function (res) {
+  return less.render(str, options).then(res => {
     return {body: res.css, dependencies: res.imports}
   })
 }
@@ -56,15 +56,15 @@ exports.renderAsync = function (str, options) {
 exports.renderFile = function (filename, options) {
   options = options || {}
   options.filename = path.resolve(filename)
-  var str = fs.readFileSync(filename, 'utf8')
+  const str = fs.readFileSync(filename, 'utf8')
   return exports.render(str, options)
 }
 
 exports.renderFileAsync = function (filename, options) {
-  return new Promise(function (resolve, reject) {
+  return new Promise((resolve, reject) => {
     options = options || {}
     options.filename = path.resolve(filename)
-    fs.readFile(filename, 'utf8', function (err, str) {
+    fs.readFile(filename, 'utf8', (err, str) => {
       if (err) {
         reject(err)
       } else {
