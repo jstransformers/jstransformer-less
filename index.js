@@ -13,9 +13,9 @@ exports.render = function (str, options) {
   if (Array.isArray(options.plugins)) {
     options.plugins = options.plugins.map(name => {
       if (typeof name === 'string') {
-        // eslint-disable-next-line import/no-dynamic-require
         return require('less-plugin-' + name)
       }
+
       return name
     })
   }
@@ -27,11 +27,13 @@ exports.render = function (str, options) {
     if (err) {
       throw err
     }
+
     result = {body: res.css, dependencies: res.imports}
   })
   if (!result) {
     throw new Error('less compilation could not complete synchronously.')
   }
+
   return result
 }
 
@@ -41,9 +43,9 @@ exports.renderAsync = function (str, options) {
   if (Array.isArray(options.plugins)) {
     options.plugins = options.plugins.map(name => {
       if (typeof name === 'string') {
-        // eslint-disable-next-line import/no-dynamic-require
         return require('less-plugin-' + name)
       }
+
       return name
     })
   }
